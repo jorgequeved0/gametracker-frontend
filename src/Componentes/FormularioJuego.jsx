@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './FormularioJuego.css';
 
 function FormularioJuego({ onAgregarJuego }) {
   // Estado que almacena todos los datos del formulario
@@ -58,61 +59,62 @@ function FormularioJuego({ onAgregarJuego }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input 
+      <h2 className="h2_form">Crear nuevo juego</h2>
+      <input id="comencemos" className="input_form"
         name="titulo" 
         value={formData.titulo} 
         onChange={handleChange} 
         placeholder="Nombre del juego" 
         required 
       />
-      <input 
+      <input className="input_form"
         name="plataforma" 
         value={formData.plataforma} 
         onChange={handleChange} 
         placeholder="Plataforma: PC/Mac/Android/iOS/Consola" 
         required 
       />
-      <input 
+      <input className="input_form"
         name="genero" 
         value={formData.genero} 
         onChange={handleChange} 
         placeholder="Género: MOBA/Shooter/Survival..." 
         required 
       />
-      <input 
+      <input className="input_form"
         name="añoLanzamiento" 
         value={formData.añoLanzamiento} 
         onChange={handleChange} 
         placeholder="Año: 2009" 
         required 
       />
-      <input 
+      <input className="input_form"
         name="desarrollador" 
         value={formData.desarrollador} 
         onChange={handleChange} 
         placeholder="Desarrollador: RiotGames/EpicGames/Nintendo..." 
         required 
       />
-      <input 
+      <input className="input_form"
         name="imagenportada" 
         value={formData.imagenportada} 
         onChange={handleChange} 
         placeholder="URL de imagen de portada (opcional)" 
       />
       <input 
-        name="descripcion" 
+        name="descripcion" className="input_form"
         value={formData.descripcion} 
         onChange={handleChange} 
         placeholder="Descripción corta del juego (opcional)" 
       />
       <label>
-        <input 
+        Juego Completado?
+        <input className="input_checkbox_form"
           name="completado" 
           type="checkbox" 
           checked={formData.completado} 
           onChange={handleChange} 
         />
-        Completado
       </label>
       <button type="submit">Agregar juego</button>
     </form>

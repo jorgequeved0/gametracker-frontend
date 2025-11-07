@@ -1,0 +1,52 @@
+body {
+    background-image: url(./assets/3550-videojuegos.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.inicio {
+    padding-top: 10vh;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1 {
+    font-family: "BBH Sans Bartle", sans-serif;
+    text-shadow: 0 0 30px #000f;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.descripcion {
+    font-size: 22px;
+    text-shadow: 0 0 30px #000f;
+}
+
+.comencemos {
+    font-size: 20px;
+    width: 11rem;
+    align-items: center;
+    background-color: #000;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background-color: #017961;
+    margin-left: 8vw;
+    transition: all 0.5s ease;
+    box-shadow: #017961;
+}
+
+.comencemos:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 20px #fff;
+    cursor: pointer;
+}

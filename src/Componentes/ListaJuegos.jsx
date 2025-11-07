@@ -28,12 +28,12 @@ function ListaJuegos() {
 
     return (
         <div className="cards">
-            <h2>Lista de Juegos</h2>
+            <h2 className="h2_lista">Lista de Juegos</h2>
             
             {juegos.length === 0 ? (<p>No hay juegos disponibles.</p>) : (
-                <ul>
+                <ul className="ul_juegos">
                     {juegos.map((juego) => (
-                        <li key={juego._id}>
+                        <li className="li_juegos" key={juego._id}>
                             <h3>{juego.titulo}</h3>
                             <p>Plataforma: {juego.plataforma}</p>
                             <p>Género: {juego.genero}</p>
