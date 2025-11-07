@@ -12,7 +12,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div id='inicio'>
       <NavBar/>
       <section className='inicio'>
         <div>

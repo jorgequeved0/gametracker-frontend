@@ -27,7 +27,7 @@ function ListaJuegos() {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="cards">
+        <div id="lista_juegos" className="cards">
             <h2 className="h2_lista">Lista de Juegos</h2>
             
             {juegos.length === 0 ? (<p>No hay juegos disponibles.</p>) : (

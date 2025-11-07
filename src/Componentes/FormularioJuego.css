@@ -2,7 +2,7 @@ form {
     max-width: 400px;
     margin: 0 7vw 0 0;
     padding: 30px;
-    background-color: #0005;
+    background-color: #0007;
     border-radius: 8px;
     box-shadow: 0 0 10px #000c;
 }
@@ -68,6 +68,5 @@ button {
 button:hover {
     background-color: #01796f;
     transform: scale(1.05);
-    transition: -5px ;
     box-shadow: 0 0 5px #017961;
 }

@@ -58,7 +58,7 @@ function FormularioJuego({ onAgregarJuego }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="form" onSubmit={handleSubmit}>
       <h2 className="h2_form">Crear nuevo juego</h2>
       <input id="comencemos" className="input_form"
         name="titulo" 

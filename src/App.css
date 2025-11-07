@@ -1,5 +1,5 @@
 body {
-    background-image: url(./assets/3550-videojuegos.jpg);
+    background-image: url(./assets/40155-halo.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -25,7 +25,7 @@ h1 {
 
 .descripcion {
     font-size: 22px;
-    text-shadow: 0 0 30px #000f;
+    text-shadow: 0 0 5px #000f;
 }
 
 .comencemos {
