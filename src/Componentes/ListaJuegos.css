@@ -23,21 +23,19 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 20px;
-    padding-bottom: 50px;
+    padding: 20px; 
 }
 
 .li_juegos{
-    flex: 0 0 calc(50% - 8px);
-    box-sizing: content-box;
+    box-sizing: border-box;
     padding: 10px;
-    margin: 1.5rem 2.5rem;
-    height: 15rem;
+    height: 40vh;
+    margin: 1.5rem 3rem;
     list-style: none;
     text-align: center;
     background-color: #fffacd;
     color: #000c;
-    border-radius: 20px;
+    border-radius: 20px 0;
     transition: all 0.3s ease;
 }
 
@@ -47,8 +45,19 @@
     transition: all 0.3s ease;
 }
 
-.añadir_juego_lista {
-    background-color: #48e;
-    height: 5vh;
-    width: 20vw;
+.elementos-card {
+    display: block;
+    box-sizing: border-box;
+}
+
+.portada-juego {
+    box-sizing: border-box;
+    min-width: 17vw;
+    max-width: 17vw;
+    min-height: 150px;
+    max-height: 150px;
+    border-radius: 20px 0;
+    background-color: #000;
+    color: #fff;
+    object-fit: cover;
 }

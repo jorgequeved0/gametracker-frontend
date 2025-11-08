@@ -34,13 +34,16 @@ function ListaJuegos() {
                 <ul className="ul_juegos">
                     {juegos.map((juego) => (
                         <li className="li_juegos" key={juego._id}>
-                            <h3>{juego.titulo}</h3>
-                            <p>Plataforma: {juego.plataforma}</p>
-                            <p>Género: {juego.genero}</p>
-                            <p>Año: {juego.añoLanzamiento}</p>
-                            <p>Desarrollador: {juego.desarrollador}</p>
-                            <p>Descripción: {juego.descripcion}</p>
-                            <p>Completado: {juego.completado ? 'Sí' : 'No'}</p>
+                            <div className="elementos-card">
+                                <img className="portada-juego" src={juego.imagenPortada} alt="Vista previa" />
+                                <h3>{juego.titulo}</h3>
+                                <p>Plataforma: {juego.plataforma}</p>
+                                <p>Género: {juego.genero}</p>
+                                <p>Año: {juego.añoLanzamiento}</p>
+                                <p>Desarrollador: {juego.desarrollador}</p>
+                                <p>Descripción: {juego.descripcion}</p>
+                                <p>Completado: {juego.completado ? 'Sí' : 'No'}</p>
+                            </div>
                         </li>
                     ))}
                 </ul>

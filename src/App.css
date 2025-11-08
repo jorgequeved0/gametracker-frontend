@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-image: url(./assets/40155-halo.jpg);
     background-attachment: fixed;
@@ -5,48 +11,217 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-.inicio {
-    padding-top: 10vh;
+/* Opacidad sobre el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Contenedor principal */
+.app-contenedor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*========= Seccion Hero =========*/
+.inicio {
+    box-sizing: border-box;
+    padding: 0 8vw;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-h1 {
-    font-family: "BBH Sans Bartle", sans-serif;
-    text-shadow: 0 0 30px #000f;
-    letter-spacing: 3px;
-    font-size: 40px;
+.hero-contenido {
+    max-width: 53.5vw;
+    animation: deslizamiento 0.8s ease;
 }
 
+@keyframes deslizamiento {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*====== Titulo principal ========*/
+.hero-titulo {
+    font-family: "BBH Sans Bartle", monospace;
+    font-size: 2.3rem;
+    letter-spacing: 4px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 40px #000f;
+}
+
+/* Descripcion */
 .descripcion {
-    font-size: 22px;
-    text-shadow: 0 0 5px #000f;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px #000c;
 }
 
 .comencemos {
-    font-size: 20px;
-    width: 11rem;
+    display: inline-flex;
     align-items: center;
-    background-color: #000;
-    display: block;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 15px;
-    background-color: #017961;
-    margin-left: 8vw;
-    transition: all 0.5s ease;
-    box-shadow: #017961;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 16px 35px;
+    background: linear-gradient(135deg( #076 0%, #0bc 100%));
+    color: #000e;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 25px rgba(1, 121, 97, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.comencemos::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.comencemos:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .comencemos:hover {
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0 0 20px #fff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 188, 212, 0.6),
+                0 0 30px rgba(0, 188, 212, 0.4);
+}
+
+.comencemos:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.seccion-juegos {
+    padding: 60px 5vw;
+    min-height: 50vh;
+}
+
+/*==== ESTADOS DE CARGA Y ERROR ====*/
+.cargando-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 25px;
+}
+
+.cargando-circulo {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 188, 212, 0.2);
+    border-top-color: #0bd;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg);}
+}
+
+.cargando-contenedor p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+/*======= MENSAJE DE ERROR ==========*/
+.mensaje-error-app {
+    background: linear-gradient(125deg, rgba(244, 67, 54, 0.2) 0%, rgba(244, 67, 54, 0.1) 100%);
+    border: 2px solid rgba(244, 67, 54, 0.5);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin: 60px auto;
+    animation: sacudir 0.5s ease;
+}
+
+@keyframes sacudir {
+    0%, 100% { transform: translateX(0);}
+    25% { transform: translateX(-10px);}
+    75% { transform: translateX(10px);}
+}
+
+.mensaje-error-app p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #e99;
+}
+
+.btn-reintentar {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #f43 0%, #d22 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.es ease;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.btn-reintentar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(244, 67, 54, 0.5);
+}
+
+/*======Footer =====*/
+.app-footer {
+    margin-top: auto;
+    padding: 30px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    border-top: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.app-footer p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/*==Scroll suave==*/
+html {
+    scroll-behavior: smooth;
 }
