@@ -97,7 +97,7 @@ body::before {
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 8px 25px rgba(1, 121, 97, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s;
     position: relative;
     overflow: hidden;
 }
@@ -216,7 +216,7 @@ body::before {
 }
 
 .app-footer p {
-    color: rgba(255, 255, 255, 0.6);
+    color: #fffb;
     font-size: 1rem;
     letter-spacing: 1px;
 }
