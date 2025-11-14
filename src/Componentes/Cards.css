@@ -37,7 +37,6 @@
 
 .card_juegos:hover .portada-juego {
     transform: scale(1.03);
-    filter: brightness(1.05);
 }
 
 .elementos-card {
@@ -66,61 +65,114 @@
     color: #4a4a4a;
 }
 
+/* Estilos Overlay de las cards */
 .vista-superpuesta {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
-    height: 90%;
-    background-color: #fafafa;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     z-index: 10;
     animation: fadeIn 0.3s ease-in-out;
-    border: 1px solid #ddd;
-}
-
-.contenido-superpuesto {
-    padding: 22px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
-}
-
-.contenido-superpuesto img {
-    min-width: 100%;
-    min-height: 180px;
-    max-height: 300px;
-    box-shadow: 0 0 10px #000;
-    background-color: #555;
-    color: #ccc;
-    background-image: url('../assets/404.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.contenido-superpuesto button {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 8px 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.contenido-superpuesto button:hover {
-    background-color: #a11;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
+    border: 1px solid #eee;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -45%); }
+    from { opacity: 0; transform: translate(-50%, -48%); }
     to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.contenido-superpuesto {
+    padding: 20px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.5;
+}
+
+.contenido-superpuesto img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    background: #aaa;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #000;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    transform: scale(1);
+}
+
+.btn-cerrar:hover {
+    color: #fff;
+    background: #f00;
+    transition: color 0.3s ease;
+    transform: scale(1.1);
+}
+
+/* Botones de acción */
+.botones-acciones {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-editar,
+.btn-eliminar {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-editar {
+    background-color: #0aa;
+    color: #fff;
+}
+
+.btn-editar:hover {
+    background-color: #088;
+    transform: translateY(-2px);
+}
+
+.btn-eliminar {
+    background-color: #e33;
+    color: #fff;
+}
+
+.btn-editar:disabled,
+.btn-eliminar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 640px) {
+    .botones-acciones {
+        flex-direction: column;
+    }
+    
+    .btn-editar,
+    .btn-eliminar {
+        width: 100%;
+    }
 }

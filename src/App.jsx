@@ -37,7 +37,7 @@ function App() {
 
   // Agrega un nuevo juego a la lista
   function agregarJuego(nuevoJuego) {
-    setJuegos(prev => [...prev, nuevoJuego]);
+    setJuegos(prev => [nuevoJuego, ...prev]);
   }
 
   //Actualiza un juego existente
