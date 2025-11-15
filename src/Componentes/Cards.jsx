@@ -6,6 +6,18 @@ function Cards({ juegos, onEliminar, onActualizar }) {
     const [juegoSeleccionado, setJuegoSeleccionado] = useState(null);
     const [eliminando, setEliminando] = useState(false);
     const [juegoAEditar, setJuegoAEditar] = useState(null);
+    const [juegosMostrados, setJuegosMostrados] = useState([]);
+
+    // Actualizar juegos mostrados cuando cambien los juegos
+    useEffect(() => {
+        // Agregar un pequeño delay para la animación
+        setJuegosMostrados([]);
+        const timer = setTimeout(() => {
+            setJuegosMostrados(juegos || []);
+        }, 50);
+
+        return () => clearTimeout(timer);
+    }, [juegos]);
 
     // Bloquear Scroll cuando el overlay esta abierto
     useEffect(() => {
@@ -70,10 +82,15 @@ function Cards({ juegos, onEliminar, onActualizar }) {
         }
     };
 
-    if (!juegos || juegos.length === 0) {
+    if (!juegosMostrados || juegosMostrados.length === 0) {
         return (
-            <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
-                <p>No hay juegos disponibles. ¡Agrega tu primer juego!</p>
+            <div className="sin-resultados">
+                <div className="sin-resultados-icono">🎮</div>
+                <p className="sin-resultados-texto">
+                    {juegos && juegos.length === 0 
+                        ? 'No hay juegos disponibles. ¡Agrega tu primer juego!' 
+                        : 'No se encontraron juegos con estos filtros'}
+                </p>
             </div>
         );
     }
@@ -81,8 +98,16 @@ function Cards({ juegos, onEliminar, onActualizar }) {
     return (
         <div id="lista_juegos" className="cards">
             <div className="contenedor_juegos">
-                {juegos.map((juego) => (
-                    <div className="card_juegos" key={juego._id} onClick={() => abrirOverlay(juego)}>
+                {juegosMostrados.map((juego, index) => (
+                    <div 
+                        className="card_juegos" 
+                        key={juego._id} 
+                        onClick={() => abrirOverlay(juego)}
+                        style={{ 
+                            animationDelay: `${index * 0.05}s`,
+                            animation: 'aparecer-card 0.4s ease forwards'
+                        }}
+                    >
                         <img 
                             className="portada-juego" 
                             src={juego.imagenPortada || '/placeholder.jpg'} 

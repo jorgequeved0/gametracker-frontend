@@ -26,7 +26,7 @@
 
 .portada-juego {
     width: 100%;
-    min-height: 180px;
+    min-height: 30vh;
     max-height: 250px;
     object-fit: cover;
     border-radius: 16px 16px 0 0;
@@ -95,7 +95,7 @@
 
 .contenido-superpuesto img {
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -104,10 +104,11 @@
 /* Botón cerrar */
 .btn-cerrar {
     position: absolute;
-    top: 2px;
-    right: 4px;
+    top: 0;
+    right: 0;
     background: #aaa;
     border-radius: 5px;
+    border-top-right-radius: 10px;
     padding: 5px 8px;
     color: #000;
     border: none;
@@ -159,6 +160,11 @@
     color: #fff;
 }
 
+.btn-eliminar:hover {
+    background-color: #e11;
+    transform: translateY(-2px);
+}
+
 .btn-editar:disabled,
 .btn-eliminar:disabled {
     opacity: 0.5;
@@ -175,4 +181,74 @@
     .btn-eliminar {
         width: 100%;
     }
+}
+
+
+
+/* Estilos Agradables para el uso de la barra de busqueda */
+@keyframes aparecer-card {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card_juegos {
+    opacity: 0;
+    /* La animación se aplica inline para el delay escalonado */
+}
+
+/* Mensaje cuando no hay resultados */
+.sin-resultados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 300px;
+    animation: aparecer 0.5s ease;
+}
+
+.sin-resultados-icono {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.sin-resultados-texto {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Transición suave del grid cuando cambia */
+.contenedor_juegos {
+    transition: all 0.3s ease;
 }

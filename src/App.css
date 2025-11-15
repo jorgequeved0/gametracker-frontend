@@ -211,8 +211,8 @@ body::before {
     margin-top: auto;
     padding: 30px 20px;
     text-align: center;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
-    border-top: 1px solid rgba(0, 188, 212, 0.2);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 70%);
+    border-top: 1px solid #999;
 }
 
 .app-footer p {
@@ -224,4 +224,22 @@ body::before {
 /*==Scroll suave==*/
 html {
     scroll-behavior: smooth;
+}
+
+/* Scrollbar minimalista */
+html::-webkit-scrollbar {
+    width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.6);
 }

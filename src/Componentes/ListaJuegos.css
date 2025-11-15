@@ -14,7 +14,46 @@
     font-family: "BBH Sans Bartle", sans-serif;;
     font-size: 40px;
     letter-spacing: 5px;
-    padding-top: 4rem;
+    padding: 4rem 0 2rem 0;
     text-shadow: 0 0 30px #000f;
     text-align: center;
+}
+
+
+/* Algunos estilos necesarios para los filtros */
+.contador-resultados {
+    text-align: center;
+    margin: 0 40px 20px 40px;
+    padding: 12px 20px;
+    background: #000a;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    border-radius: 8px;
+}
+
+.contador-resultados p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    margin: 0;
+}
+
+.contador-resultados strong {
+    color: #0bd;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contador-resultados {
+        margin: 0 20px 20px 20px;
+        padding: 10px 15px;
+    }
+
+    .contador-resultados p {
+        font-size: 14px;
+    }
+
+    .contador-resultados strong {
+        font-size: 15px;
+    }
 }
