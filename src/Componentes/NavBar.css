@@ -2,29 +2,27 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 150px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 1000;
-}
-
-.h2_navbar {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     font-size: 1rem;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    gap: 20px;
+    position: fixed;
+    z-index: 100;
+    background: #000c;
+    border-bottom-right-radius: 20px;
+}
+
 .ul_navbar {
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 .li_navbar a {
@@ -43,6 +41,41 @@
 a:hover {
     background-color: #fffe;
     color: #000e;
-    transition: all 1s ease;
+    transition: all 0.8s ease;
     transform: scale(1.03);
+}
+
+/* Overlay de estadisticas */
+.btn-navbar-dashboard {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    width: 150px;
+    height: 50px;
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: none;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-navbar-dashboard:hover {
+    background-color: #fffe;
+    color: #000e;
+    transition: all s ease;
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .ul_navbar {
+        width: 100%;
+        justify-content: space-between;
+    }
 }

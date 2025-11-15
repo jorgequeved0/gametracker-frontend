@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import ListaJuegos from './Componentes/ListaJuegos';
 import FormularioJuego from './Componentes/FormularioJuego';
-import NavBar from './Componentes/NavBar'
-import './App.css'
+import NavBar from './Componentes/NavBar';
+import Dashboard from './Componentes/Dashboard';
+import './App.css';
 
 function App() {
   const [juegos, setJuegos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [dashboardAbierto, setDashboardAbierto] = useState(false);
 
   useEffect(() => {
     cargarJuegos();
@@ -40,7 +42,7 @@ function App() {
     setJuegos(prev => [nuevoJuego, ...prev]);
   }
 
-  //Actualiza un juego existente
+  // Actualiza un juego existente
   function actualizarJuego(juegoActualizado) {
     setJuegos(prev =>
       prev.map(juego =>
@@ -54,7 +56,7 @@ function App() {
     setJuegos(prev => prev.filter(juego => juego._id !== idJuego));
   }
 
-  // funcion scroll suave
+  // Función scroll suave
   function scrollToForm() {
     const form = document.getElementById('form');
     if (form) {
@@ -68,22 +70,26 @@ function App() {
 
   return (
     <div className='app-contenedor'>
-      <NavBar />
+      <NavBar onAbrirDashboard={() => setDashboardAbierto(true)} />
 
-      {/* Seccion hero */}
+      {/* Sección hero */}
       <section className='inicio' id='inicio'>
         <div className="hero-contenido">
           <h1 className="hero-titulo">GameTracker</h1>
           <p className="descripcion">¿Listo/a para organizar tu colección de juegos?</p>
-          <button className='comencemos'onClick={scrollToForm} arial-label="Ir al formulario">
-          ¡Comencemos!
+          <button 
+            className='comencemos' 
+            onClick={scrollToForm} 
+            aria-label="Ir al formulario"
+          >
+            ¡Comencemos!
           </button>
         </div>
 
         <FormularioJuego onAgregarJuego={agregarJuego}/>
       </section>
 
-      {/* Seccion lista de juegos */}
+      {/* Sección lista de juegos */}
       <section className='seccion-juegos'>
         {error && (
           <div className="mensaje-error-app">
@@ -105,6 +111,14 @@ function App() {
           />
         )}
       </section>
+
+      {/* Dashboard como overlay */}
+      {dashboardAbierto && (
+        <Dashboard 
+          juegos={juegos} 
+          onCerrar={() => setDashboardAbierto(false)}
+        />
+      )}
 
       {/* Footer */}
       <footer className="app-footer">

@@ -40,8 +40,6 @@
     transition: all 0.3s ease;
 }
 
-
-
 .elementos-card {
     padding: 18px 20px;
     text-align: left;
@@ -56,6 +54,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    text-transform: uppercase;
 }
 
 .elementos-card p {
@@ -82,6 +81,10 @@
     z-index: 10;
     animation: fadeIn 0.3s ease-in-out;
     border: 1px solid #eee;
+}
+
+.vista-superpuesta h3 {
+    text-transform: uppercase;
 }
 
 @keyframes fadeIn {
@@ -185,8 +188,6 @@
         width: 100%;
     }
 }
-
-
 
 /* Mensaje cuando no hay resultados */
 .sin-resultados {
