@@ -1,0 +1,48 @@
+.estrellas-contenedor {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.estrella {
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.estrella-llena {
+    color: #fc1;
+}
+
+.estrella-vacia {
+    color: #fff3;
+}
+
+/* Interactivo*/
+.estrellas-contenedor.interactivo .estrella {
+    cursor: pointer;
+}
+
+.estrellas-contenedor.interactivo .estrella:hover {
+    transform: scale(1.2);
+}
+
+.estrellas-contenedor.interactivo .estrella:hover,
+.estrellas-contenedor.interactivo .estrella:hover ~ .estrella {
+    color: #fc0;
+}
+
+.estrellas-contenedor.solo-lectura .estrella {
+    cursor: default;
+}
+
+.tamaño-small .estrella {
+    font-size: 1rem;
+}
+
+.tamaño-medium .estrella {
+    font-size: 1.5rem;
+}
+
+.tamaño-large .estrella {
+    font-size: 2rem;
+}

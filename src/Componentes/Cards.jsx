@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
 import './Cards.css';
 import ModalEditarJuego from './ModalEditarJuego';
+import ListaReviews from './ListaReviews';
 
 function Cards({ juegos, onEliminar, onActualizar }) {
     const [juegoSeleccionado, setJuegoSeleccionado] = useState(null);
     const [eliminando, setEliminando] = useState(false);
     const [juegoAEditar, setJuegoAEditar] = useState(null);
-    const [juegosMostrados, setJuegosMostrados] = useState([]);
 
-    // Actualizar juegos mostrados cuando cambien los juegos
+    // Log para debug
     useEffect(() => {
-        // Agregar un pequeño delay para la animación
-        setJuegosMostrados([]);
-        const timer = setTimeout(() => {
-            setJuegosMostrados(juegos || []);
-        }, 50);
-
-        return () => clearTimeout(timer);
+        console.log('Cards recibió juegos:', juegos?.length);
     }, [juegos]);
 
     // Bloquear Scroll cuando el overlay esta abierto
@@ -82,14 +76,12 @@ function Cards({ juegos, onEliminar, onActualizar }) {
         }
     };
 
-    if (!juegosMostrados || juegosMostrados.length === 0) {
+    if (!juegos || juegos.length === 0) {
         return (
             <div className="sin-resultados">
                 <div className="sin-resultados-icono">🎮</div>
                 <p className="sin-resultados-texto">
-                    {juegos && juegos.length === 0 
-                        ? 'No hay juegos disponibles. ¡Agrega tu primer juego!' 
-                        : 'No se encontraron juegos con estos filtros'}
+                    No se encontraron juegos con estos filtros
                 </p>
             </div>
         );
@@ -98,11 +90,15 @@ function Cards({ juegos, onEliminar, onActualizar }) {
     return (
         <div id="lista_juegos" className="cards">
             <div className="contenedor_juegos">
-                {juegosMostrados.map((juego, index) => (
+                {juegos.map((juego, index) => (
                     <div 
                         className="card_juegos" 
                         key={juego._id} 
                         onClick={() => abrirOverlay(juego)}
+                        style={{ 
+                            animationDelay: `${index * 0.05}s`,
+                            animation: 'aparecer-card 0.4s ease forwards'
+                        }}
                     >
                         <img 
                             className="portada-juego" 
@@ -124,7 +120,12 @@ function Cards({ juegos, onEliminar, onActualizar }) {
             {juegoSeleccionado && (
                 <div className="vista-superpuesta">
                     <div className="contenido-superpuesto">
-                        <button onClick={cerrarOverlay} className="btn-cerrar" aria-label="Cerrar">
+                        <button 
+                            onClick={cerrarOverlay} 
+                            className="btn-cerrar" 
+                            aria-label="Cerrar"
+                            type="button"
+                        >
                             ✕
                         </button>
                         
@@ -146,6 +147,7 @@ function Cards({ juegos, onEliminar, onActualizar }) {
                         
                         <div className="botones-acciones">
                             <button 
+                                type="button"
                                 className="btn-editar" 
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -157,13 +159,21 @@ function Cards({ juegos, onEliminar, onActualizar }) {
                             </button>
                             
                             <button 
+                                type="button"
                                 className="btn-eliminar" 
-                                onClick={() => juegoEliminar(juegoSeleccionado._id)} 
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    juegoEliminar(juegoSeleccionado._id);
+                                }} 
                                 disabled={eliminando}
                             >
                                 {eliminando ? 'Eliminando...' : '🗑️ Eliminar'}
                             </button>
                         </div>
+
+                        {/* Lista de Reviews */}
+                        <ListaReviews juegoId={juegoSeleccionado._id} />
+                        
                     </div>
                 </div>
             )}

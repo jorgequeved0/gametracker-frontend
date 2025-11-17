@@ -1,0 +1,165 @@
+/* Fondo oscuro semitransparente */
+.review-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Caja modal */
+.review-modal {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Botón cerrar (esquina superior derecha) */
+.review-btn-cerrar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: #f77;
+}
+
+/* Título */
+.review-titulo {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #eee;
+    text-align: center;
+}
+
+.review-puntuacion-texto {
+    color: #fff;
+}
+
+/* Mensajes */
+.review-mensaje {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.review-mensaje-success {
+    background: #e6f7e6;
+    color: #2e7d32;
+}
+.review-mensaje-error {
+    background: #fdecea;
+    color: #c62828;
+}
+
+/* Formulario */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-grupo label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+    color: #aaa;
+}
+
+.review-grupo input,
+.review-grupo textarea,
+.review-grupo select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+}
+
+.review-grupo input:focus,
+.review-grupo textarea:focus,
+.review-grupo select:focus {
+  border-color: #0078d4;
+  outline: none;
+}
+
+/* Checkbox */
+.review-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Botones */
+.review-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.review-btn-cancelar,
+.review-btn-guardar {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.review-btn-cancelar {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    color: #333;
+}
+.review-btn-cancelar:hover {
+    background: #eee;
+}
+
+.review-btn-guardar {
+    border: none;
+    background: #0078d4;
+    color: #fff;
+    font-weight: 500;
+}
+
+.review-btn-guardar:hover {
+    background: #005fa3;
+    transform: scale(1.02);
+}
+
+/* Spinner */
+.review-spinner {
+    border: 2px solid #fff;
+    border-top: 2px solid #0078d4;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 6px;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Animaciones */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
