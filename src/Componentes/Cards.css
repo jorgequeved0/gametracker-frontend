@@ -1,82 +1,50 @@
-/* Animación de entrada para las cards */
-@keyframes aparecer-card {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Animación para overlay */
-@keyframes overlay-fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes overlay-fadeOut {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-}
-
 /* Contenedor de juegos */
 .contenedor_juegos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
     padding: 30px;
     justify-content: center;
-    background: #fff;
-    box-shadow: 0 0 10px #000;
-    color: #222;
     transition: all 0.3s ease;
 }
 
 /* Card individual */
 .card_juegos {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: #111;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     overflow: hidden;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: aparecer-card 0.4s ease forwards;
+    border: 1px solid #222;
     transition: all 0.3s ease;
 }
 
 .card_juegos:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-color: #444;
-    transform: translateY(-5px);
-    transition: all 0.3s ease;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.card_juegos:hover .portada-juego {
+    transform: scale(1.05);
 }
 
 /* Imagen portada */
 .portada-juego {
     width: 100%;
-    height: 180px;
+    min-height: 200px;
+    max-height: 240px;
     object-fit: cover;
-    background: #ddd;
-    border-bottom: 1px solid #ddd;
+    border-radius: 12px 12px 0 0;
+    background-color: #333;
+    transition: transform 0.3s ease;
 }
 
 /* Contenido de la card */
 .elementos-card {
-    padding: 12px 16px;
+    padding: 16px 18px;
     text-align: left;
     width: 100%;
 }
@@ -84,55 +52,74 @@
 .elementos-card h3 {
     font-size: 1rem;
     font-weight: 600;
-    color: #222;
+    color: #eee;
     margin: 6px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     text-transform: uppercase;
+    transition: color 0.2s ease;
 }
 
 .elementos-card p {
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 1rem;
+    color: #bbb;
     margin: 4px 0;
+}
+
+.card_juegos:hover h3 {
+    color: #0bd;
 }
 
 /* Overlay */
 .vista-superpuesta {
     position: fixed;
     inset: 0;
-    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    animation: overlay-fadeIn 0.1s ease forwards;
+    animation: overlayFadeIn 0.3s ease forwards;
 }
 
-.vista-superpuesta.cerrando {
-    animation: overlay-fadeOut 0.3s ease forwards;
+@keyframes overlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Contenido del overlay */
 .contenido-superpuesto {
-    background: #fff;
-    color: #222;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
+    background: #111;
     padding: 24px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #eee;
     line-height: 1.5;
     overflow-y: auto;
-    max-height: 85vh;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 600px;
     position: relative;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    animation: overlay-fadeIn 0.3s ease forwards;
 }
 
 .contenido-superpuesto img {
-    border-radius: 6px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
     width: 100%;
     height: auto;
     object-fit: cover;
     margin-bottom: 12px;
+}
+
+/* Scrollbar */
+.contenido-superpuesto::-webkit-scrollbar {
+    width: 6px;
+}
+.contenido-superpuesto::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
 }
 
 /* Botón cerrar */
@@ -140,73 +127,98 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: #eee;
+    background: #333;
     border: none;
     border-radius: 50%;
     padding: 6px 10px;
-    color: #333;
-    font-size: 16px;
+    color: #fff;
+    font-size: 14px;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: all 0.2s ease;    
 }
 
 .btn-cerrar:hover {
-    background: #333;
-    color: #fff;
+    background: #0bd;
+    transform: rotate(90deg);
 }
 
 /* Botones de acción */
 .botones-acciones {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .btn-editar,
 .btn-eliminar {
     flex: 1;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
     font-weight: 500;
-    transition: background 0.2s ease;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .btn-editar {
-    background: #0066cc;
+    background-color: #0bd;
     color: #fff;
-    border: none;
 }
-
 .btn-editar:hover {
-    background: #004c99;
+    background-color: #0ac;
+    transform: translateY(-2px);
 }
 
 .btn-eliminar {
-    background: #cc3333;
+    background-color: #e33;
     color: #fff;
-    border: none;
+}
+.btn-eliminar:hover {
+    background-color: #c22;
+    transform: translateY(-2px);
 }
 
-.btn-eliminar:hover {
-    background: #a11;
+.btn-editar:disabled,
+.btn-eliminar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* Mensaje sin resultados */
 .sin-resultados {
-    text-align: center;
-    padding: 40px 20px;
-    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 300px;
+    animation: aparecer 0.5s ease;
 }
 
 .sin-resultados-icono {
-    font-size: 60px;
-    margin-bottom: 10px;
+    font-size: 70px;
+    margin-bottom: 16px;
     opacity: 0.6;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .sin-resultados-texto {
+    color: rgba(255,255,255,0.7);
     font-size: 1rem;
-    line-height: 1.4;
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.5;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }

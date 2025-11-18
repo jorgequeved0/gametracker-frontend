@@ -174,7 +174,6 @@ function FiltrosBusqueda({ juegos, onFiltrar }) {
                 {/* Filtro de completado */}
                 <div className="filtro-grupo">
                     <label htmlFor="completado">
-                        <span className="icono-filtro">✓</span>
                         Estado
                     </label>
                     <select

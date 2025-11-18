@@ -1,20 +1,26 @@
+/* Contenedor del formulario */
 .formulario-juego {
     width: 30vw;
-    padding: 20px 40px 10px 40px;
+    padding: 20px 40px;
     background: #0009;
     backdrop-filter: blur(5px);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px #0008,
-                0 0 0 1px #fff1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px #0001;
+    transition:all 0.3s ease;
+    animation: fadeInForm 0.4s ease;
+}
+
+@keyframes fadeInForm {
+    from { opacity: 0; transform: translateY(12px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
 .formulario-juego:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px #0bd4,
-                0 0 0 1px #0bd1;
+    box-shadow: 0 10px 28px #0bd6;
 }
 
+/* Titulo */
 .h2_form {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
@@ -23,12 +29,11 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.5rem;
-    text-shadow: 0 0 20px #000;
+    text-shadow: 0 2px 20px #0003;
 }
 
+/* Inputs */
 .form-grupo {
-    margin: 0;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,31 +41,29 @@
 
 .input_form {
     width: 100%;
-    padding: 6px 15px;
-    margin-bottom: 12px;
+    padding: 8px 15px;
+    margin-bottom: 10px;
     border: none;
-    border-left: 3px solid #00bcd4;
+    border-left: 1px solid #00bcd4;
     border-bottom: 1px solid #00bcd4;
     border-radius: 6px;
     box-sizing: border-box;
-    background-color: #0004;
-    color: #fff;
+    background: #0007;
+    color: #eee;
     font-size: 14px;
     transition: all 0.3s ease;
 }
 
 .input_form::placeholder {
-    color: #eee;
-    font-size: 13px;
+    color: #888;
 }
 
 .input_form:focus {
-    border-left: 3px solid #fc0;
-    border-bottom: 1px solid #fc0;
-    background-color: #000a;
+    border-color: #0bd;
+    background-color: #000b;
     outline: none;
     transform: translateX(2px);
-    box-shadow: 0 0 15px rgba(255, 204, 9, 0.2);
+    box-shadow: 0 0 8px #0bd6;
 }
 
 .input_form:disabled {
@@ -68,23 +71,23 @@
     cursor: not-allowed;
 }
 
+/* Textarea */
 .textarea-form {
     resize: vertical;
     min-height: 80px;
-    font-family: inherit;
+    max-height: 150px;
     line-height: 1.5;
 }
 
+/* CheckBox */
 .checkbox-label {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 12px 0 20px;
     font-size: 15px;
-    color: #fff;
+    color: #ccc;
     cursor: pointer;
-    user-select: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .checkbox-label:hover {
@@ -99,34 +102,29 @@
     accent-color: #0bd;
 }
 
-.checkbox-label span {
-    font-weight: 500;
-}
-
+/* Boton enviar */
 .btn-submit {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     background: #0bd;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .btn-submit:hover:not(:disabled) {
     background: #0bda;
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px #10dbf680;
 }
 
 .circulo {
@@ -144,9 +142,9 @@
 
 /* Mensajes de errores/cargas */
 .mensaje {
-    padding: 12px 15px;
+    padding: 10px 15px;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 14px;
     font-weight: 500;
     animation: deslizar 0.3s ease;
@@ -156,7 +154,7 @@
 @keyframes deslizar {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-6px);
     } to {
         opacity: 1;
         transform: translateY(0);
@@ -164,24 +162,24 @@
 }
 
 .mensaje-success {
-    background-color: rgba(76, 175, 80, 0.2);
+    background: #4a53;
     border-left: 4px solid #4a5;
-    color: #ada;
+    color: #9c9;
 }
 
 .mensaje-error {
-    background-color: rgba(244, 67, 54, 0.2);
+    background-color: #f433;
     border-left: 4px solid #f43;
     color: #e99;
 }
 
 /* Preview de imagen */
 .preview-imagen {
-    width: 17vw;
+    width: 70%;
     border-radius: 6px;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(0, 188, 212, 0.3);
+    background: #222;
+    border: 1px dashed #0bd4;
     margin-bottom: 8px;
 }
 
@@ -189,12 +187,10 @@
     width: 100%;
     height: 150px;
     object-fit: cover;
-    display: block;
 }
 
 .error-imagen {
-    display: block;
-    padding: 20px;
+    padding: 12px;
     text-align: center;
     color: #f66;
     font-size: 13px;
@@ -204,7 +200,6 @@
     text-align: center;
     font-size: 12px;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.5);
+    color: #888;
     margin-top: 10px;
-    margin-bottom: 0;
 }

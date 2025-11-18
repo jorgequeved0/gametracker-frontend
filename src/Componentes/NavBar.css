@@ -3,10 +3,10 @@
     margin: 0;
     box-sizing: border-box;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 0;
     font-size: 1rem;
 }
 
+/* Barra de Navegación*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -14,68 +14,92 @@
     width: auto;
     gap: 20px;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
     z-index: 100;
     background: #000c;
-    border-bottom-right-radius: 20px;
+    padding: 8px 20px;
+    box-shadow: 0 4px 12px #0005;
+    animation: deslizar 0.4s ease;
 }
 
+@keyframes deslizar {
+    from {
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Lista */
 .ul_navbar {
     list-style: none;
     display: flex;
     align-items: center;
+    gap: 12px;
 }
 
+/* Items */
 .li_navbar a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 50px;
+    height: 45px;
     text-decoration: none;
     color: #fff;
-    background-color: transparent;
-    border-radius: 4px;
+    background: transparent;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
-a:hover {
-    background-color: #fffe;
-    color: #000e;
-    transition: all 0.8s ease;
-    transform: scale(1.03);
+.li_navbar a:hover {
+    background-color: #fff;
+    color: #111;
+    transform: translateY(-2px);
 }
 
-/* Overlay de estadisticas */
+/* Boton de estadisticas/Dashboard */
 .btn-navbar-dashboard {
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: 0.5px;
     width: 150px;
-    height: 50px;
-    text-decoration: none;
+    height: 45px;
     color: #fff;
-    background-color: transparent;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    background: transparent;
     border: none;
-    border-bottom-right-radius: 20px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-navbar-dashboard:hover {
-    background-color: #fffe;
-    color: #000e;
-    transition: all s ease;
-    transform: scale(1.03);
+    background-color: #fff;
+    color: #111;
+    transform: translateY(-2px);
 }
 
+/* REsponsive*/
 @media (max-width: 768px) {
     .navbar {
         width: 100%;
         padding: 10px;
+        border-radius: 0;
     }
 
     .ul_navbar {
         width: 100%;
         justify-content: space-between;
+    }
+
+    .li_navbar a, .btn-navbar-dashboard {
+        width: auto;
+        padding: 0 12px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
