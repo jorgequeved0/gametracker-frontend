@@ -29,13 +29,14 @@
     text-align: center;
     margin: 0 40px 20px 40px;
     padding: 12px 20px;
-    background: #000a;
-    border: 1px solid rgba(0, 188, 212, 0.3);
+    background: #1119;
+    backdrop-filter: blur(5px);
+    border: 1px solid #0bd8;
     border-radius: 8px;
 }
 
 .contador-resultados p {
-    color: rgba(255, 255, 255, 0.9);
+    color: #fffe;
     font-size: 15px;
     margin: 0;
 }

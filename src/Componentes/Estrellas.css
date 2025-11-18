@@ -14,23 +14,27 @@
 }
 
 .estrella-vacia {
-    color: #0005;
+    color: #999;
 }
 
-/* Interactivo*/
+/* Interactivo */
 .estrellas-contenedor.interactivo .estrella {
     cursor: pointer;
 }
 
-.estrellas-contenedor.interactivo .estrella:hover {
+.estrellas-contenedor.interactivo .estrella:hover,
+.estrellas-contenedor.interactivo .estrella:focus {
     transform: scale(1.2);
     color: #fc0;
 }
 
+/* Solo lectura */
 .estrellas-contenedor.solo-lectura .estrella {
     cursor: default;
+    opacity: 0.8;
 }
 
+/* Tamaños */
 .tamaño-small .estrella {
     font-size: 1rem;
 }

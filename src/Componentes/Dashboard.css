@@ -86,7 +86,7 @@
 }
 
 .stat-info p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fffd;
     margin: 5px 0 0 0;
 }
@@ -183,7 +183,7 @@
 }
 
 .barra-nombre {
-    color: rgba(255, 255, 255, 0.9);
+    color: #fffe;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -233,7 +233,7 @@
 
 .info-texto strong {
     display: block;
-    color: rgba(255, 255, 255, 0.7);
+    color: #fffb;
     font-size: 1rem;
     margin-bottom: 5px;
     letter-spacing: 0.5px;

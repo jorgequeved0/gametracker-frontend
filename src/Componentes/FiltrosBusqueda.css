@@ -4,7 +4,7 @@
     border-radius: 12px;
     padding: 20px;
     margin: 0 30px 25px 30px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px #0003;
     animation: aparecer 0.4s ease;
 }
 
@@ -48,7 +48,7 @@
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -101,7 +101,7 @@
     border-radius: 6px;
     color: #fff;
     font-size: 13px;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition: all 0.3s ease;
     font-family: inherit;
 }
 

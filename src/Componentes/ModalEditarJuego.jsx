@@ -117,7 +117,6 @@ function ModalEditarJuego({ juego, onCerrar, onActualizar }) {
                 <button 
                     className="modal-btn-cerrar" 
                     onClick={onCerrar}
-                    aria-label="Cerrar modal"
                     type="button"
                 >
                     ✕
