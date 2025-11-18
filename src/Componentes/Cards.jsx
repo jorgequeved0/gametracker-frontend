@@ -95,10 +95,6 @@ function Cards({ juegos, onEliminar, onActualizar }) {
                         className="card_juegos" 
                         key={juego._id} 
                         onClick={() => abrirOverlay(juego)}
-                        style={{ 
-                            animationDelay: `${index * 0.05}s`,
-                            animation: 'aparecer-card 0.4s ease forwards'
-                        }}
                     >
                         <img 
                             className="portada-juego" 

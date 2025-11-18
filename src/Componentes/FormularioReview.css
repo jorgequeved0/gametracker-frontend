@@ -1,8 +1,6 @@
 /* Fondo oscuro semitransparente */
 .review-overlay {
     position: fixed;
-    inset: 0;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +9,7 @@
 
 /* Caja modal */
 .review-modal {
-    background: #fff;
+    background: #000;
     border-radius: 8px;
     padding: 2rem;
     width: 100%;
@@ -21,7 +19,7 @@
     animation: fadeIn 0.3s ease;
 }
 
-/* Botón cerrar (esquina superior derecha) */
+/* Botón cerrar esquina superior derecha */
 .review-btn-cerrar {
     position: absolute;
     top: 1rem;
@@ -32,6 +30,15 @@
     height: 24px;
     cursor: pointer;
     background-color: #f77;
+    color: #fff;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.review-btn-cerrar:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
 }
 
 /* Título */
@@ -73,7 +80,7 @@
 
 .review-grupo label {
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
     display: block;
     color: #aaa;
 }
@@ -85,15 +92,16 @@
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: border-color 0.2s ease;
+    resize: vertical;
 }
 
 .review-grupo input:focus,
 .review-grupo textarea:focus,
 .review-grupo select:focus {
-  border-color: #0078d4;
-  outline: none;
+    border-color: #0078d4;
+    outline: none;
 }
 
 /* Checkbox */

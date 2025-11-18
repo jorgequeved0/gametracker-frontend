@@ -1,239 +1,18 @@
-.contenedor_juegos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 40px;
-    justify-content: center;
-    color: #fff;
-}
-
-.card_juegos {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 10px #0001;
-    overflow: hidden;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-}
-
-.card_juegos:hover {
-    transform: scale(1.03);
-}
-
-.card_juegos:hover .portada-juego {
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
-
-.portada-juego {
-    width: 100%;
-    min-height: 30vh;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 16px 16px 0 0;
-    background-color: #999;
-    color: #000a;
-    transition: all 0.3s ease;
-}
-
-.elementos-card {
-    padding: 18px 20px;
-    text-align: left;
-    width: 100%;
-}
-
-.elementos-card h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2f2f2f;
-    margin: 8px 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-
-.elementos-card p {
-    font-size: 0.9rem;
-    color: #555;
-    margin: 5px 0;
-}
-
-.card_juegos:hover h3 {
-    color: #4a4a4a;
-}
-
-/* Estilos Overlay de las cards */
-.vista-superpuesta {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0009;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-in-out;
-    border: 1px solid #eee;
-    overflow-y: auto;
-}
-
-.vista-superpuesta h3 {
-    text-transform: uppercase;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -48%); }
-    to { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-/* Scrollbar */
-.contenido-superpuesto::-webkit-scrollbar {
-    width: 5px;
-}
-
-.contenido-superpuesto::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
-}
-
-.contenido-superpuesto {
-    position: fixed;
-    top: 10vh;
-    right: 25vw;
-    left: 25%;
-    background: #fff;
-    padding: 20px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.5;
-    overflow-y: auto;
-    max-height: 80vh;
-    border-radius: 15px;
-}
-
-.contenido-superpuesto img {
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.5);
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Botón cerrar */
-.btn-cerrar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #aaa;
-    border-bottom-left-radius: 5px;
-    padding: 5px 8px;
-    color: #000;
-    border: none;
-    font-size: 10px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    transform: scale(1);
-}
-
-.btn-cerrar:hover {
-    color: #fff;
-    background: #f00;
-    transition: color 0.3s ease;
-}
-
-/* Botones de acción */
-.botones-acciones {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.btn-editar,
-.btn-eliminar {
-    flex: 1;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.btn-editar {
-    background-color: #0aa;
-    color: #fff;
-}
-
-.btn-editar:hover {
-    background-color: #088;
-    transform: translateY(-2px);
-}
-
-.btn-eliminar {
-    background-color: #e33;
-    color: #fff;
-}
-
-.btn-eliminar:hover {
-    background-color: #e11;
-    transform: translateY(-2px);
-}
-
-.btn-editar:disabled,
-.btn-eliminar:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Mensaje cuando no hay resultados */
-.sin-resultados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-    min-height: 300px;
-    animation: aparecer 0.5s ease;
-}
-
-.sin-resultados-icono {
-    font-size: 80px;
-    margin-bottom: 20px;
-    opacity: 0.6;
-    animation: flotar 3s ease-in-out infinite;
-}
-
-@keyframes flotar {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.sin-resultados-texto {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 500px;
-    line-height: 1.6;
-}
-
-@keyframes aparecer {
+/* Animación de entrada para las cards */
+@keyframes aparecer-card {
     from {
         opacity: 0;
-        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación para overlay */
+@keyframes overlay-fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
     }
     to {
         opacity: 1;
@@ -241,7 +20,193 @@
     }
 }
 
-/* Transición suave del grid cuando cambia */
+@keyframes overlay-fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+/* Contenedor de juegos */
 .contenedor_juegos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 0 10px #000;
+    color: #222;
     transition: all 0.3s ease;
+}
+
+/* Card individual */
+.card_juegos {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: aparecer-card 0.4s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.card_juegos:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #444;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+/* Imagen portada */
+.portada-juego {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Contenido de la card */
+.elementos-card {
+    padding: 12px 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.elementos-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin: 6px 0;
+    text-transform: uppercase;
+}
+
+.elementos-card p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 4px 0;
+}
+
+/* Overlay */
+.vista-superpuesta {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: overlay-fadeIn 0.1s ease forwards;
+}
+
+.vista-superpuesta.cerrando {
+    animation: overlay-fadeOut 0.3s ease forwards;
+}
+
+/* Contenido del overlay */
+.contenido-superpuesto {
+    background: #fff;
+    color: #222;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    padding: 24px;
+    line-height: 1.5;
+    overflow-y: auto;
+    max-height: 85vh;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    animation: overlay-fadeIn 0.3s ease forwards;
+}
+
+.contenido-superpuesto img {
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-cerrar:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Botones de acción */
+.botones-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-editar,
+.btn-eliminar {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-editar {
+    background: #0066cc;
+    color: #fff;
+    border: none;
+}
+
+.btn-editar:hover {
+    background: #004c99;
+}
+
+.btn-eliminar {
+    background: #cc3333;
+    color: #fff;
+    border: none;
+}
+
+.btn-eliminar:hover {
+    background: #a11;
+}
+
+/* Mensaje sin resultados */
+.sin-resultados {
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+}
+
+.sin-resultados-icono {
+    font-size: 60px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+}
+
+.sin-resultados-texto {
+    font-size: 1rem;
+    line-height: 1.4;
 }

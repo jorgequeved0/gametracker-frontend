@@ -19,7 +19,6 @@ function Estrellas({ puntuacion, onChange, soloLectura = false, tamaño = 'mediu
     return (
         <div 
             className={`estrellas-contenedor ${soloLectura ? 'solo-lectura' : 'interactivo'} tamaño-${tamaño}`}
-            aria-label={`Puntuación: ${puntuacion} de 5 estrellas`}
         >
             {estrellas.map((estrella) => (
                 <span 
@@ -29,7 +28,6 @@ function Estrellas({ puntuacion, onChange, soloLectura = false, tamaño = 'mediu
                     onKeyPress={(e) => handleKeyPress(e, estrella)}
                     role={soloLectura ? 'img' : 'button'}
                     tabIndex={soloLectura ? -1 : 0}
-                    aria-label={`${estrella} estrella${estrella > 1 ? 's' : ''}`}
                 >
                     {estrella <= puntuacion ? '★' : '☆'}
                 </span>

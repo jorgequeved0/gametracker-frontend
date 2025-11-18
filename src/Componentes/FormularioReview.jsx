@@ -109,7 +109,7 @@ function FormularioReview({ juegoId, review, onCerrar, onGuardar }) {
     return (
         <div className="review-overlay" onClick={handleOverlayClick}>
             <div className="review-modal">
-                <button className="review-btn-cerrar" onClick={onCerrar}></button>
+                <button className="review-btn-cerrar" onClick={onCerrar}>X</button>
                 <h3 className="review-titulo">
                     {review ? 'Editar Reseña' : 'Agregar Reseña'}
                 </h3>
@@ -124,7 +124,7 @@ function FormularioReview({ juegoId, review, onCerrar, onGuardar }) {
                     {/* Puntuacion */}
                     <div className="review-grupo">
                         <label>Puntuación *</label>
-                        <Estrellas puntuacion={formData.puntuacion} onChange={(valor) => setFormData(prev => ({...prev, puntuacion: valor }))} tamaño="large"/>
+                        <Estrellas puntuacion={formData.puntuacion} onChange={(valor) => setFormData(prev => ({...prev, puntuacion: valor}))} tamaño="large"/>
                         <span className="review-puntuacion-texto">
                             {formData.puntuacion} de 5 estrellas
                         </span>

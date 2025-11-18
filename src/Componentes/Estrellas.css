@@ -14,7 +14,7 @@
 }
 
 .estrella-vacia {
-    color: #fff3;
+    color: #0005;
 }
 
 /* Interactivo*/
@@ -24,10 +24,6 @@
 
 .estrellas-contenedor.interactivo .estrella:hover {
     transform: scale(1.2);
-}
-
-.estrellas-contenedor.interactivo .estrella:hover,
-.estrellas-contenedor.interactivo .estrella:hover ~ .estrella {
     color: #fc0;
 }
 
