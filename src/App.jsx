@@ -5,15 +5,39 @@ import NavBar from './Componentes/NavBar';
 import Dashboard from './Componentes/Dashboard';
 import './App.css';
 
+// Imagenes importadas para el fondo animado de la pagina
+import img1 from './assets/3550-videojuegos.jpg';
+
 function App() {
   const [juegos, setJuegos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [dashboardAbierto, setDashboardAbierto] = useState(false);
+  const [indiceImagen, setIndiceImagen] = useState(0);
+
+  // Array de imágenes para el fondo
+  const imagenesGaming = [
+    img1,
+    'https://4kwallpapers.com/images/walls/thumbs_3t/24476.jpg',
+    'https://4kwallpapers.com/images/walls/thumbs_3t/24321.jpg',
+    'https://4kwallpapers.com/images/walls/thumbs_3t/24507.jpg',
+    'https://4kwallpapers.com/images/walls/thumbs_3t/23545.jpg',
+    'https://4kwallpapers.com/images/walls/thumbs_3t/23426.jpg',
+    'https://4kwallpapers.com/images/walls/thumbs_3t/16044.jpeg',
+  ];
 
   useEffect(() => {
     cargarJuegos();
   }, []);
+
+  // Efecto para cambiar el fondo automáticamente
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setIndiceImagen(prev => (prev + 1) % imagenesGaming.length);
+    }, 4000); // Cambia cada 4 segundos
+
+    return () => clearInterval(intervalo);
+  }, [imagenesGaming.length]);
 
   // Obtiene todos los juegos del backend
   async function cargarJuegos() {
@@ -69,62 +93,75 @@ function App() {
   }
 
   return (
-    <div className='app-contenedor'>
-      <NavBar onAbrirDashboard={() => setDashboardAbierto(true)} />
+    <>
+      {/* Contenedor del fondo animado */}
+      <div className="background-slider">
+        {imagenesGaming.map((imagen, index) => (
+          <div
+            key={index}
+            className={`background-slide ${index === indiceImagen ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${imagen})` }}
+          />
+        ))}
+      </div>
 
-      {/* Sección hero */}
-      <section className='inicio' id='inicio'>
-        <div className="hero-contenido">
-          <h1 className="hero-titulo">GameTracker</h1>
-          <p className="descripcion">¿Listo/a para organizar tu colección de juegos?</p>
-          <button 
-            className='comencemos' 
-            onClick={scrollToForm} 
-            aria-label="Ir al formulario"
-          >
-            ¡Comencemos!
-          </button>
-        </div>
+      <div className='app-contenedor'>
+        <NavBar onAbrirDashboard={() => setDashboardAbierto(true)} />
 
-        <FormularioJuego onAgregarJuego={agregarJuego}/>
-      </section>
-
-      {/* Sección lista de juegos */}
-      <section className='seccion-juegos'>
-        {error && (
-          <div className="mensaje-error-app">
-            <p>{error}</p>
-            <button onClick={cargarJuegos} className='btn-reintentar'>Reintentar</button>
+        {/* Sección hero */}
+        <section className='inicio' id='inicio'>
+          <div className="hero-contenido">
+            <h1 className="hero-titulo">GameTracker</h1>
+            <p className="descripcion">¿Listo/a para organizar tu colección de juegos?</p>
+            <button 
+              className='comencemos' 
+              onClick={scrollToForm} 
+              aria-label="Ir al formulario"
+            >
+              ¡Comencemos!
+            </button>
           </div>
-        )}
 
-        {cargando ? (
-          <div className="cargando-contenedor">
-            <div className="cargando-circulo"></div>
-            <p>Cargando juegos...</p>
-          </div>
-        ) : (
-          <ListaJuegos 
-            juegos={juegos}
-            onActualizar={actualizarJuego}
-            onEliminar={eliminarJuego}
+          <FormularioJuego onAgregarJuego={agregarJuego}/>
+        </section>
+
+        {/* Sección lista de juegos */}
+        <section className='seccion-juegos'>
+          {error && (
+            <div className="mensaje-error-app">
+              <p>{error}</p>
+              <button onClick={cargarJuegos} className='btn-reintentar'>Reintentar</button>
+            </div>
+          )}
+
+          {cargando ? (
+            <div className="cargando-contenedor">
+              <div className="cargando-circulo"></div>
+              <p>Cargando juegos...</p>
+            </div>
+          ) : (
+            <ListaJuegos 
+              juegos={juegos}
+              onActualizar={actualizarJuego}
+              onEliminar={eliminarJuego}
+            />
+          )}
+        </section>
+
+        {/* Dashboard como overlay */}
+        {dashboardAbierto && (
+          <Dashboard 
+            juegos={juegos} 
+            onCerrar={() => setDashboardAbierto(false)}
           />
         )}
-      </section>
 
-      {/* Dashboard como overlay */}
-      {dashboardAbierto && (
-        <Dashboard 
-          juegos={juegos} 
-          onCerrar={() => setDashboardAbierto(false)}
-        />
-      )}
-
-      {/* Footer */}
-      <footer className="app-footer">
-        <p>GameTracker © 2025 - organiza tu pasión por los videojuegos</p>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer className="app-footer">
+          <p>GameTracker © 2025 - organiza tu pasión por los videojuegos</p>
+        </footer>
+      </div>
+    </>
   );
 }
 

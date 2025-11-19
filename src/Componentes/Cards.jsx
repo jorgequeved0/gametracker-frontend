@@ -81,7 +81,7 @@ function Cards({ juegos, onEliminar, onActualizar }) {
             <div className="sin-resultados">
                 <div className="sin-resultados-icono">🎮</div>
                 <p className="sin-resultados-texto">
-                    No se encontraron juegos con estos filtros
+                    No se encontraron juegos
                 </p>
             </div>
         );

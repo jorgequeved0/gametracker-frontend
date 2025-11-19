@@ -5,15 +5,38 @@
 }
 
 body {
-    background-image: url(./assets/40155-halo.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
+}
+
+/* Contenedor del fondo animado */
+.background-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.background-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.background-slide.active {
+    opacity: 1;
 }
 
 /* Opacidad sobre el fondo */
@@ -33,6 +56,7 @@ body::before {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /*========= Seccion Hero =========*/
